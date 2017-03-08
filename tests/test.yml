@@ -6,9 +6,9 @@
    - singularity_install_package: False
 
   pre_tasks:
-   - name: setup dir
+   - name: create singularity_config_dir in testing where we do not actually (yet) install singularity
      file:
-      path: "{{singularity_conf_dir }}"
+      path: "{{singularity_config_dir }}"
       state: directory
   
   roles:
