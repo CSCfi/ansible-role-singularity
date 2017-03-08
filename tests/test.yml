@@ -4,6 +4,7 @@
   connection: local
   vars:
    - singularity_install_package: False
+   - singularity_config_dir: /tmp/singularity
 
   pre_tasks:
    - name: create singularity_config_dir in testing where we do not actually (yet) install singularity
