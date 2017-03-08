@@ -34,10 +34,8 @@ before_script:
   - DOCKER_CONTAINER_ID=$(docker ps | grep ${IMAGE_BUILD_PLATFORM} | awk '{print $1}')
   - docker logs $DOCKER_CONTAINER_ID
   # Testing of this ansible-role:
-  # Two variants, one where we modify requirements.yml to not have any versions
 script:
-  - if [ "$IMAGE_BUILD_PLATFORM" == "latest-epel-centos7" ]; then docker exec -ti $DOCKER_CONTAINER_ID /bin/sh -c "/$ROLETOTEST/tests/test-in-docker-image.sh latest"; fi
-  - if [ "$IMAGE_BUILD_PLATFORM" != "latest-epel-centos7" ]; then docker exec -ti $DOCKER_CONTAINER_ID /bin/sh -c "/$ROLETOTEST/tests/test-in-docker-image.sh"; fi
+  - docker exec -ti $DOCKER_CONTAINER_ID /bin/sh -c "/$ROLETOTEST/tests/test-in-docker-image.sh"
 after_script:
   # Print some logs and other useful information for debugging travis:
   - >
