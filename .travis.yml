@@ -26,6 +26,9 @@ script:
   - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
   # Basic role execution
   - ansible-playbook tests/test.yml -i tests/inventory
+  # Cat templated file
+after_script:
+  - cat /tmp/singularity/singularity.conf
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
