@@ -1,7 +1,6 @@
 ---
 - hosts: localhost
   remote_user: root
-  connection: local
   vars:
    - singularity_install_package: False
    - singularity_config_dir: /tmp/singularity
