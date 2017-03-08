@@ -11,7 +11,7 @@
  - name: template in singularity.conf
    template:
      src: singularity.conf.j2
-     dest: "{{ singularity_conf_dir }}/singularity.conf"
+     dest: "{{ singularity_config_dir }}/singularity.conf"
      backup: yes
      owner: root
      mode: 0644
