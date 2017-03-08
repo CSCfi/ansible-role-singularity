@@ -8,12 +8,19 @@ singularity_packages:
 
 singularity_config_dir: "/etc/singularity"
 # These settings are defaults in the 2.2.99-0.1.el7 RPM
+singularity_allow_setuid: "yes"
+singularity_enable_overlay: "no"
+singularity_user_bind_control: "yes"
+singularity_container_dir: "/var/lib/singularity/mnt"
+# This is not the best way, to change more settings you need
+# to overwrite the whole singularity_settings variable
+# in for example group_vars
 singularity_settings:
- - allow setuid = yes
+ - allow setuid = {{ singularity_allow_setuid }}
  - allow pid ns = yes
  - allow user image = yes
  - protected image mode = none
- - enable overlay = no
+ - enable overlay = {{ singularity_enable_overlay }}
  - config passwd = yes
  - config group = yes
  - config resolv_conf = yes
@@ -24,7 +31,7 @@ singularity_settings:
  - mount tmp = yes
  - mount hostfs = no
  - bind path = /etc/hosts
- - user bind control = yes
+ - user bind control = {{ singularity_user_bind_control }}
  - mount slave = yes
- - container dir = /var/lib/singularity/mnt
+ - container dir = {{ singularity_container_dir }}
  - singularity user = singularity

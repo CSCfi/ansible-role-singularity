@@ -15,6 +15,12 @@ Role Variables
 
 see defaults/main.yml 
 
+the settings in singularity.conf is defined with this list:
+
+<pre>
+singularity_settings:
+</pre>
+
 Dependencies
 ------------
 
