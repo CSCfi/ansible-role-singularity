@@ -1,0 +1,30 @@
+---
+# defaults file for ansible-role-singularity
+
+singularity_install_package: True
+singularity_packages:
+  - singularity
+  - singularity-slurm
+
+singularity_config_dir: "/etc/singularity"
+# These settings are defaults in the 2.2.99-0.1.el7 RPM
+singularity_settings:
+ - allow setuid = yes
+ - allow pid ns = yes
+ - allow user image = yes
+ - protected image mode = none
+ - enable overlay = no
+ - config passwd = yes
+ - config group = yes
+ - config resolv_conf = yes
+ - mount proc = yes
+ - mount sys = yes
+ - mount dev = yes
+ - mount home = yes
+ - mount tmp = yes
+ - mount hostfs = no
+ - bind path = /etc/hosts
+ - user bind control = yes
+ - mount slave = yes
+ - container dir = /var/lib/singularity/mnt
+ - singularity user = singularity

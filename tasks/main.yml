@@ -1,0 +1,17 @@
+---
+# tasks file for ansible-role-singularity
+
+ - name: install singularity
+   package: 
+     name: "{{ item }}"
+     state: installed
+   with_items: "{{ singularity_packages }}"
+   when: singularity_install_package
+
+ - name: template in singularity.conf
+   template:
+     src: singularity.conf.j2
+     dest: "{{ singularity_conf_dir }}/singularity.conf"
+     backup: yes
+     owner: root
+     mode: 0644
