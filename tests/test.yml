@@ -1,6 +1,7 @@
 ---
 - hosts: localhost
   remote_user: root
+  connection: local
   vars:
    - singularity_install_package: False
 
