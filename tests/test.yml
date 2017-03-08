@@ -1,5 +1,14 @@
 ---
 - hosts: localhost
   remote_user: root
+  vars:
+   - singularity_install_package: False
+
+  pre_tasks:
+   - name: setup dir
+     file:
+      path: "{{singularity_conf_dir }}"
+      state: directory
+  
   roles:
     - ansible-role-singularity
