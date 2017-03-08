@@ -110,8 +110,8 @@ function test_playbook(){
 }
 function extra_tests(){
 
-    ${APACHE_CTL} configtest || (echo "php --version was failed" && exit 100 )
     echo "TEST: cat /tmp/singularity/singularity.conf"
+    cat /tmp/singularity/singularity.conf
 }
 
 
