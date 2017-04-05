@@ -12,26 +12,41 @@ singularity_allow_setuid: "yes"
 singularity_enable_overlay: "no"
 singularity_user_bind_control: "yes"
 singularity_container_dir: "/var/lib/singularity/mnt"
+singularity_allow_pid_ns: "yes"
+singularity_allow_user_image: "yes"
+singularity_protected_image_mode: "none"
+singularity_config_passwd: "yes"
+singularity_config_group: "yes"
+singularity_config_resolv_conf: "yes"
+singularity_mount_proc: "yes"
+singularity_mount_sys: "yes"
+singularity_mount_dev: "yes"
+singularity_mount_home: "yes"
+singularity_mount_tmp: "yes"
+singularity_mount_hostfs: "no"
+singularity_bind_path: "/etc/hosts"
+singularity_mount_slave: "yes"
+singularity_singularity_user: "singularity"
 # This is not the best way, to change more settings you need
 # to overwrite the whole singularity_settings variable
 # in for example group_vars
 singularity_settings:
  - allow setuid = {{ singularity_allow_setuid }}
- - allow pid ns = yes
- - allow user image = yes
- - protected image mode = none
+ - allow pid ns = {{ singularity_allow_pid_ns }}
+ - allow user image = {{ singularity_allow_user_image }}
+ - protected image mode = {{ singularity_protected_image_mode }}
  - enable overlay = {{ singularity_enable_overlay }}
- - config passwd = yes
- - config group = yes
- - config resolv_conf = yes
- - mount proc = yes
- - mount sys = yes
- - mount dev = yes
- - mount home = yes
- - mount tmp = yes
- - mount hostfs = no
- - bind path = /etc/hosts
+ - config passwd = {{ singularity_config_passwd }}
+ - config group = {{ singularity_config_group }}
+ - config resolv_conf = {{ singularity_config_resolv_conf }}
+ - mount proc = {{ singularity_mount_proc }}
+ - mount sys = {{ singularity_mount_sys }}
+ - mount dev = {{ singularity_mount_dev }}
+ - mount home = {{ singularity_mount_home }}
+ - mount tmp = {{ singularity_mount_tmp }}
+ - mount hostfs = {{ singularity_mount_hostfs }}
+ - bind path = {{ singularity_bind_path }}
  - user bind control = {{ singularity_user_bind_control }}
- - mount slave = yes
+ - mount slave = {{ singularity_mount_slave }}
  - container dir = {{ singularity_container_dir }}
- - singularity user = singularity
+ - singularity user = {{ singularity_singularity_user }}
