@@ -50,3 +50,8 @@ singularity_settings:
  - mount slave = {{ singularity_mount_slave }}
  - container dir = {{ singularity_container_dir }}
  - singularity user = {{ singularity_singularity_user }}
+
+singularity_manage_init_file: True
+singularity_init_log: '/usr/bin/logger -t {{ singularity_init_log_tag }} "{{ singularity_init_log_message }}"'
+singularity_init_log_tag: "singularity"
+singularity_init_log_message: "user=$USER image=${SINGULARITY_IMAGE:-} image_path=${IMAGE_PATH:-} container=${SINGULARITY_CONTAINER:-} rundir=${SINGULARITY_RUNDIR:-} jobid=${SLURM_JOB_ID:-} cmd=$SINGULARITY_COMMAND"

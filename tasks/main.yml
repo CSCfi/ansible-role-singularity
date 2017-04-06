@@ -15,3 +15,12 @@
      backup: yes
      owner: root
      mode: 0644
+
+ - name: template in init if singularity_manage_init_file is True
+   template:
+     src: init.j2
+     dest: "{{ singularity_config_dir }}/init"
+     backup: yes
+     owner: root
+     mode: 0644
+   when: singularity_manage_init_file
