@@ -10,6 +10,8 @@ Requirements
 
 An already configured repository which has the singularity packages.
 
+The WLCG Linux Repo and OpenScienceGrid have singularity packages.
+
 Role Variables
 --------------
 
