@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/CSCfi/ansible-role-singularity.svg?branch=master)](https://travis-ci.org/CSCfi/ansible-role-singularity)
+
 ansible-role-singularity
 =========
 
