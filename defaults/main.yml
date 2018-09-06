@@ -4,7 +4,6 @@
 singularity_install_package: True
 singularity_packages:
   - singularity
-  - singularity-slurm
 
 singularity_config_dir: "/etc/singularity"
 # These settings are defaults in the 2.2.99-0.1.el7 RPM
