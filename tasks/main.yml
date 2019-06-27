@@ -6,7 +6,7 @@
      name: "{{ item }}"
      state: installed
    with_items: "{{ singularity_packages }}"
-   when: singularity_install_package
+   when: singularity_install_package|bool
 
  - name: template in singularity.conf
    template:
