@@ -2,7 +2,7 @@
 # tasks file for ansible-role-singularity
 
  - name: install singularity
-   package: 
+   package:
      name: "{{ item }}"
      state: installed
    with_items: "{{ singularity_packages }}"
